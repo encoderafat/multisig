@@ -15,6 +15,8 @@ fourth account,uses the first signatory to approve (approve_as_multi) and the se
 
 3. Use the Front-End Template to create a multisig UI component.
 
+https://github.com/encoderafat/multisig/tree/main/substrate-front-end-template
+
 I've created a component that creates a multisig account , given a threshold and a list of signatories, and transfers some funds to that account.
 
 <img src="https://github.com/encoderafat/multisig/blob/main/img/multisig.png" />
