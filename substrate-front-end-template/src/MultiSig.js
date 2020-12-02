@@ -39,19 +39,18 @@ export default function Main (props) {
 	console.log(amount);
 	const tx = api.tx.balances.transfer(multisigAddress,amount);
 	return new Promise((resolve,reject) => {
-		tx.signAndSend(accountPair, (result) => {
-			if (result.status.isInBlock) {
-				setStatus(`Current transaction status: ${result.status.type}`);
-			 } else if (result.status.isFinalized) {
-				 resolve(result);
-				setStatus(`😉 Finalized. Block hash: ${result.status.asFinalized.toString()}`);
-			 } else if (result.status.isDropped || result.status.isInvalid || result.status.isUsurped) {
-				 reject(result);
-				 setStatus(`Transaction Rejected`);
-			 };
-		});
-	});
-	
+      tx.signAndSend(accountPair, (result) => {
+		if (result.status.isInBlock) {
+		  setStatus(`Current transaction status: ${result.status.type}`);
+		} else if (result.status.isFinalized) {
+		  resolve(result);
+		  setStatus(`😉 Finalized. Block hash: ${result.status.asFinalized.toString()}`);
+		} else if (result.status.isDropped || result.status.isInvalid || result.status.isUsurped) {
+		  reject(result);
+		  setStatus(`Transaction Rejected`);
+		};
+	  });
+   });
 }
   
   
